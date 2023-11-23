@@ -1,21 +1,24 @@
-import { Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Suspense, useMemo } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 
-import "./App.css";
-import routes from "./routes";
+import './App.css'
+import routes from './routes'
+import themeConfiguration from './theme'
 
 const App = () => {
   const renderRoutes = ({ children, component, ...props }, index) => {
     if (Array.isArray(children) && children.length > 0) {
-      return children.map(renderRoute);
+      return children.map(renderRoute)
     }
 
     if (component) {
-      return renderRoute({ ...props, component }, index);
+      return renderRoute({ ...props, component }, index)
     }
 
-    return <></>;
-  };
+    return <></>
+  }
 
   const renderRoute = (
     { name, header, icon, path, component: Component, ...props },
@@ -28,19 +31,29 @@ const App = () => {
       state={{ a: true }}
       element={<Component {...props} />}
     />
-  );
+  )
+
+  const theme = useMemo(
+    () => themeConfiguration(true),
+    [
+      /* only once */
+    ]
+  )
 
   return (
     <BrowserRouter>
-      <Suspense /* fallback={<Loader />}*/>
-        <Routes>
-          {routes
-            .filter((route) => !route?.path?.includes("http"))
-            .map(renderRoutes)}
-        </Routes>
-      </Suspense>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Suspense /* fallback={<Loader />}*/>
+          <Routes>
+            {routes
+              .filter(route => !route?.path?.includes('http'))
+              .map(renderRoutes)}
+          </Routes>
+        </Suspense>
+      </ThemeProvider>
     </BrowserRouter>
-  );
-};
+  )
+}
 
-export default App;
+export default App

@@ -1,16 +1,16 @@
-import { lazy } from "react";
+import { lazy } from 'react'
 
-const Home = lazy(() => import("./Home"));
+const Home = lazy(() => import('./Home'))
 
 const routes = [
   {
-    header: "networkInformation",
-    name: "home",
+    header: 'networkInformation',
+    name: 'home',
     // icon: <GridIcon />,
     component: Home,
-    path: "/",
-    exact: true,
-  },
-];
+    path: '/',
+    exact: true
+  }
+]
 
-export default routes;
+export default routes

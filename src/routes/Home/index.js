@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Alchemy, Network } from "alchemy-sdk";
+import React, { useEffect, useState } from 'react'
+import { Alchemy, Network } from 'alchemy-sdk'
 // import { makeStyles } from '@mui/styles'
 // import { useTranslation } from 'react-i18next'
 
@@ -13,23 +13,23 @@ import { Alchemy, Network } from "alchemy-sdk";
 
 const settings = {
   apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
-  network: Network.ETH_MAINNET,
-};
-const alchemy = new Alchemy(settings);
+  network: Network.ETH_MAINNET
+}
+const alchemy = new Alchemy(settings)
 
 const Home = () => {
-  const [blockNumber, setBlockNumber] = useState();
+  const [blockNumber, setBlockNumber] = useState()
 
   useEffect(() => {
     async function getBlockNumber() {
-      setBlockNumber(await alchemy.core.getBlockNumber());
+      setBlockNumber(await alchemy.core.getBlockNumber())
     }
-    getBlockNumber();
-  });
+    getBlockNumber()
+  })
 
-  return <div className="App">Block Number: {blockNumber}</div>;
-};
+  return <div className="App">Block Number: {blockNumber}</div>
+}
 
-Home.propTypes = {};
+Home.propTypes = {}
 
-export default Home;
+export default Home
