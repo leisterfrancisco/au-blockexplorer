@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Alchemy, Network } from 'alchemy-sdk'
+
+import BlockComponent from '../../components/block'
+
 // import { makeStyles } from '@mui/styles'
 // import { useTranslation } from 'react-i18next'
 
@@ -27,7 +30,12 @@ const Home = () => {
     getBlockNumber()
   })
 
-  return <div className="App">Block Number: {blockNumber}</div>
+  return (
+    <div className="App" style={{ marginLeft: '20px' }}>
+      Block Number: {blockNumber}
+      <BlockComponent />
+    </div>
+  )
 }
 
 Home.propTypes = {}
