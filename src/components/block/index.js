@@ -16,13 +16,14 @@ import styles from './styles'
 const useStyles = makeStyles(styles)
 
 const Block = ({ /* children, */ ...props }) => {
+  console.log({ props })
   const classes = useStyles()
-  const [number, setNumber] = useState(0)
-  const [trxs, setTrxs] = useState([])
-  const [size, setSize] = useState(1500)
-  const [gasUsed, setGasUsed] = useState(1)
-  const [totalDifficulty, setTotalDifficulty] = useState(1)
-  const [status, setStatus] = useState('safe')
+  const [number /* , setNumber */] = useState(0)
+  const [trxs /* , setTrxs */] = useState([])
+  const [size /* , setSize */] = useState(1500)
+  const [gasUsed /* , setGasUsed */] = useState(1)
+  const [totalDifficulty /* , setTotalDifficulty */] = useState(1)
+  const [status /* , setStatus */] = useState('safe')
 
   return (
     <Grid container spacing={1} className={classes.root}>
@@ -40,7 +41,7 @@ const Block = ({ /* children, */ ...props }) => {
           <Grid xs={6}>{trxs.length}</Grid>
         </Grid>
       </Grid>
-      <Grid xs={12} className={classes.middleText}>
+      <Grid xs={12} className={`${classes.middleText} ${classes.centerText}`}>
         {size} bytes
       </Grid>
       <Grid xs={12}>
@@ -80,14 +81,12 @@ const Block = ({ /* children, */ ...props }) => {
 
 Block.propTypes = {
   title: PropTypes.string,
-  //   children: PropTypes.node,
   handleOnFilter: PropTypes.func,
   filterValues: PropTypes.array.isRequired,
   filterRowsBy: PropTypes.number.isRequired
 }
 
 Block.defaultProps = {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   handleOnFilter: () => {},
   filterValues: [],
   filterRowsBy: 0

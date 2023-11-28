@@ -1,4 +1,4 @@
-export default theme => ({
+export default (/* theme */) => ({
   root: {
     maxWidth: '300px',
     maxHeight: '500px',
@@ -13,6 +13,11 @@ export default theme => ({
     fontFamily: 'Roboto',
     fontSize: '24px',
     fontWeight: 'bold'
+  },
+  centerText: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
   //   accordion: {
   //     border: 'none',
