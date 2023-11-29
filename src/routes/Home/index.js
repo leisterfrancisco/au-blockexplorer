@@ -7,6 +7,7 @@ import ListItem from '@mui/material/ListItem'
 import { makeStyles } from '@mui/styles'
 
 import BlockComponent from '../../components/block'
+import TransactionComponent from '../../components/transaction'
 import styles from './styles'
 
 const useStyles = makeStyles(styles)
@@ -52,7 +53,10 @@ const Home = () => {
         <Grid item xs={8} className={classes.secondRow}>
           <List>
             <ListItem>
-              <BlockComponent />
+              <TransactionComponent />
+            </ListItem>
+            <ListItem>
+              <TransactionComponent />
             </ListItem>
           </List>
         </Grid>
